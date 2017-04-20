@@ -1,16 +1,12 @@
-"""
-Elliot and Mike testing out parallel computing in python
-"""
+import multiprocessing
+import os
 
-from multiprocessing import Pool
 
-def f(x):
-    return x*x
+a = [0]*1000
+a = [a]*1000
+for i in range(0,1000):
+	for j in range(0,1000):
+		a[i][j] = 0.0005 * (i+1) + 0.0005 * (j+1)
 
-if __name__ == '__main__':
-    p = Pool(5)
-    print(p.map(f, [1, 2, 3]))
-
-"""
-shit
-"""
+print(a)
+print(multiprocessing.cpu_count())
